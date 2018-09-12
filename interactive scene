@@ -1,7 +1,4 @@
-// drawing ellipse and Rect
-// meeka fast
-// sept 12
-//
+
 
 function setup() {
     createCanvas(400, 400);
