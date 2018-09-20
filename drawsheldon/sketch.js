@@ -6,20 +6,25 @@
 // I used the mouseWheel() to change the size of Sheldon
 let shell;
 let scaler;
+let music;
 
 function preload(){
   shell = loadImage("assets/SHELDON-BIG-BANG-THEORY.png")
+  music = loadSound("assets/Samba.wav")
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
   scaler = 0.25
+  music.setVolume(0.5)
+  music.loop()
 }
 
 function draw() {
   if (keyIsPressed && keyCode === 32) {
    image(shell, mouseX, mouseY, shell.width * scaler , shell.height * scaler)
+
 
   }
   else if (keyCode === 88){
@@ -37,5 +42,9 @@ function mouseWheel(event) {
     scaler *= 0.9;
   }
   console.log(event);
+
+function playMusic() {
+  music.play()
+}
 
 }
