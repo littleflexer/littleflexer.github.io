@@ -23,6 +23,7 @@ function setup() {
   scaler = 0.25
   music.setVolume(0.5)
   music.loop()
+  alert("How to play Draw Sheldon: \n Hold space bar to draw and 'X' to reset. This will draw with Sheldon's beautiful face. \n Use the mouse wheel to change the size. Scroll up for small and down for large. \n Quickly click 'B' to draw with the text BAZINGA. \n Quickly click 'V' to draw with young Sheldon. \n To stamp bazinga or young sheldon, you'll want to hold down either 'B' or 'V' ,depending on what you want to stamp, and move your curser to the desired location. \n REMEMBER A normal Sheldon face is your default drawing tool.")
 }
 
 function draw() {
