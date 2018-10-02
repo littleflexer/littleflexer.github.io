@@ -25,6 +25,7 @@ function preload(){ //I use the preload to set up everything saved in the assets
   music = loadSound("assets/Samba.wav")
   gameStart = millis()
 
+
 }
 
 function setup() { //this sets up the canvas, music, and mousewheel
@@ -33,7 +34,8 @@ function setup() { //this sets up the canvas, music, and mousewheel
   scaler = 0.25
   music.setVolume(0.5)
   music.loop()
-  alert("How to play Draw Sheldon: \n Hold space bar to draw and 'X' to reset. This will draw with Sheldon's beautiful face. \n Use the mouse wheel to change the size. Scroll up for small and down for large. \n Quickly click 'B' (while holding space) to draw with the text BAZINGA. \n Quickly click 'V'(while holding space) to draw with young Sheldon. \n To stamp bazinga or young sheldon, you'll want to hold down either 'B' or 'V' ,depending on what you want to stamp, and move your curser to the desired location. \n REMEMBER A normal Sheldon face is your default drawing tool. \n YOU ONLY HAVE ONE MINUITE PER ROOM.")
+  alert("Currently down due to adjustments being made")
+
 }
 
 function draw() { //this is where the magic happens
@@ -42,7 +44,7 @@ ChoosePen();
 
  }
 function userBackground(){  // this is the function that'll make it so you have one minuite to create a drawing on each background.
-  if (gameStart < 60000){
+  if (keyIsPressed && keyCode === 39){
     imageMode(CORNER);
     background(appartment, 0, 0, width, height);
   }
@@ -60,7 +62,7 @@ function userBackground(){  // this is the function that'll make it so you have 
 
  function ChoosePen(){    //this function lets the user pick the drawing utensil.
    if (keyIsPressed && keyCode === 32) {
-     imageMode(CENTER)
+    imageMode(CENTER)
     image(shell, mouseX, mouseY, shell.width * scaler , shell.height * scaler)
 
    }
