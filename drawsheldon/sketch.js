@@ -14,6 +14,7 @@ let hallway;
 let kitchen;
 let whichBackground;
 let gameStart;
+let lastBackground = 0;
 
 function preload(){ //I use the preload to set up everything saved in the assets folder
   bazinga = loadImage("assets/bazinga.png")
@@ -44,18 +45,22 @@ ChoosePen();
 
  }
 function userBackground(){  // this is the function that'll make it so you have one minuite to create a drawing on each background.
-  if (keyIsPressed && keyCode === 39){
+  if (keyIsPressed && keyCode === 39 && lastBackground === 0){
     imageMode(CORNER);
     background(appartment, 0, 0, width, height);
+    lastBackground = lastBackground + 1;
   }
-  else if (gameStart >= 60000 && millis() <= 180000){
+  else if (keyIsPressed && keyCode === 39 && lastBackground === 1){
     imageMode(CORNER)
     background(kitchen, 0, 0, width, height);
+    lastBackground = lastBackground + 1;
+
   }
-  else if(gameStart > 180000){
+  else if(keyIsPressed && keyCode === 39 && lastBackground === 2){
     imageMode(CORNER)
     background(hallway, 0, 0, width, height);
     gameStart = gameStart - millis();
+    lastBackground = 0;
   }
 }
 
