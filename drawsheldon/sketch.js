@@ -13,7 +13,6 @@ let appartment;
 let hallway;
 let kitchen;
 let whichBackground;
-let gameStart;
 let lastBackground = 0;
 
 function preload(){ //I use the preload to set up everything saved in the assets folder
@@ -23,8 +22,7 @@ function preload(){ //I use the preload to set up everything saved in the assets
   appartment = loadImage("assets/Sheldonappartment.jpg")
   hallway = loadImage("assets/big bang theaory hallway.jpg")
   kitchen = loadImage("assets/bbt kitchen.jpg")
-  music = loadSound("assets/Samba.wav")
-  gameStart = millis()
+
 
 
 }
@@ -59,7 +57,6 @@ function userBackground(){  // this is the function that'll make it so you have 
   else if(keyIsPressed && keyCode === 39 && lastBackground === 2){
     imageMode(CORNER)
     background(hallway, 0, 0, width, height);
-    gameStart = gameStart - millis();
     lastBackground = 0;
   }
 }
