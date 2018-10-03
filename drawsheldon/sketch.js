@@ -23,8 +23,6 @@ function preload(){ //I use the preload to set up everything saved in the assets
   hallway = loadImage("assets/big bang theaory hallway.jpg")
   kitchen = loadImage("assets/bbt kitchen.jpg")
 
-
-
 }
 
 function setup() { //this sets up the canvas, music, and mousewheel
