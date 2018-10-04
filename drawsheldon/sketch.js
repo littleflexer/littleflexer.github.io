@@ -22,6 +22,7 @@ function preload(){ //I use the preload to set up everything saved in the assets
   appartment = loadImage("assets/Sheldonappartment.jpg")
   hallway = loadImage("assets/big bang theaory hallway.jpg")
   kitchen = loadImage("assets/bbt kitchen.jpg")
+  music = loadSound("assets/Samba.wav")
 
 }
 
@@ -40,7 +41,7 @@ userBackground();
 ChoosePen();
 
  }
-function userBackground(){  // this is the function that'll make it so you have one minuite to create a drawing on each background.
+function userBackground(){  // this function gives you the power to choose what your background is.
   if (keyIsPressed && keyCode === 39 && lastBackground === 0){
     imageMode(CORNER);
     background(appartment, 0, 0, width, height);
