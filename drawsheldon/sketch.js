@@ -32,7 +32,7 @@ function setup() { //this sets up the canvas, music, and mousewheel
   scaler = 0.25
   music.setVolume(0.5)
   music.loop()
-  alert("Currently down due to adjustments being made")
+  alert("Currently down due to adjustments being made.")
 
 }
 
@@ -47,13 +47,13 @@ function userBackground(){  // this function gives you the power to choose what 
     background(appartment, 0, 0, width, height);
     lastBackground = lastBackground + 1;
   }
-  else if (keyIsPressed && keyCode === 39 && lastBackground === 1){
+  if (keyIsPressed && keyCode === 39 && lastBackground === 1){
     imageMode(CORNER)
     background(kitchen, 0, 0, width, height);
     lastBackground = lastBackground + 1;
 
   }
-  else if(keyIsPressed && keyCode === 39 && lastBackground === 2){
+  if(keyIsPressed && keyCode === 39 && lastBackground === 2){
     imageMode(CORNER)
     background(hallway, 0, 0, width, height);
     lastBackground = 0;
@@ -67,19 +67,22 @@ function userBackground(){  // this function gives you the power to choose what 
     image(shell, mouseX, mouseY, shell.width * scaler , shell.height * scaler)
 
    }
-   else if (keyIsPressed && keyCode === 66) {
+   if (keyIsPressed && keyCode === 66) {
      imageMode(CENTER)
      image(bazinga, mouseX, mouseY, bazinga.width * scaler , bazinga.height * scaler)
    }
 
-   else if (keyIsPressed && keyCode === 86) {
+    if (keyIsPressed && keyCode === 86) {
      imageMode(CENTER)
      image(youngShell, mouseX, mouseY, youngShell.width * scaler , youngShell.height * scaler)
    }
 
-   else if (keyCode === 88){
+   if (keyIsPressed && keyCode === 88){
      background(255)
      image(shell, mouseX, mouseY, shell.width * scaler , shell.height * scaler)
+   }
+   if (keyIsPressed && keyCode === 67){
+   // this empty loop is keeping it so you can lift and select
    }
  }
 
