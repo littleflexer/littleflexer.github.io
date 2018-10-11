@@ -32,56 +32,71 @@ function setup() { //this sets up the canvas, music, and mousewheel
   scaler = 0.25
   music.setVolume(0.5)
   music.loop()
-  alert("Currently down due to adjustments being made.")
+  alert(" HOW TO DRAW\n m- switch through backgrounds\n n- draw with Sheldon's face\n b- draw with the word Bazinga\n v- draw with young Sheldon\n c- lift up pen\n x- restart\n z- clear current screen\n Use the Mouse Wheel to adjust size, up for small and down for big\n PRACTICE HERE AND CLICK 'Z' OR 'M' TO BEGIN")
 
 }
 
 function draw() { //this is where the magic happens
-userBackground();
 ChoosePen();
 
  }
 function userBackground(){  // this function gives you the power to choose what your background is.
-  if (keyIsPressed && keyCode === 39 && lastBackground === 0){
+
+  if (lastBackground === 0){
     imageMode(CORNER);
     background(appartment, 0, 0, width, height);
-    lastBackground = lastBackground + 1;
-  }
-  if (keyIsPressed && keyCode === 39 && lastBackground === 1){
-    imageMode(CORNER)
-    background(kitchen, 0, 0, width, height);
-    lastBackground = lastBackground + 1;
 
   }
-  if(keyIsPressed && keyCode === 39 && lastBackground === 2){
-    imageMode(CORNER)
-    background(hallway, 0, 0, width, height);
-    lastBackground = 0;
+  if (lastBackground === 1){
+    imageMode(CORNER);
+    background(kitchen, 0, 0, width, height);
+
+
   }
+  if(lastBackground === 2){
+    imageMode(CORNER);
+    background(hallway, 0, 0, width, height);
+
+  }
+}
+
+function keyTyped(){
+  if (key === "m" || key === "M"){
+    lastBackground++;
+
+    if (lastBackground >2){
+      lastBackground = 0;
+    }
+    userBackground();
+    }
+  if (key === "z" || key === "Z"){
+    userBackground();
+  }
+
 }
 
 
  function ChoosePen(){    //this function lets the user pick the drawing utensil.
-   if (keyIsPressed && keyCode === 32) {
+   if (keyCode === 78) {
     imageMode(CENTER)
     image(shell, mouseX, mouseY, shell.width * scaler , shell.height * scaler)
 
    }
-   if (keyIsPressed && keyCode === 66) {
+   if (keyCode === 66) {
      imageMode(CENTER)
      image(bazinga, mouseX, mouseY, bazinga.width * scaler , bazinga.height * scaler)
    }
 
-    if (keyIsPressed && keyCode === 86) {
+    if (keyCode === 86) {
      imageMode(CENTER)
      image(youngShell, mouseX, mouseY, youngShell.width * scaler , youngShell.height * scaler)
    }
 
-   if (keyIsPressed && keyCode === 88){
+   if (keyCode === 88){
      background(255)
      image(shell, mouseX, mouseY, shell.width * scaler , shell.height * scaler)
    }
-   if (keyIsPressed && keyCode === 67){
+   if (keyCode === 67){
    // this empty loop is keeping it so you can lift and select
    }
  }
