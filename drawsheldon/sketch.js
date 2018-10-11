@@ -3,7 +3,7 @@
 // Sept 19th
 //
 // Extra for Experts:
-// I used the mouseWheel() to change the size of Sheldon. After that, I threw in some spicy samba music to get a nice mood going while you DrawSheldon.
+// My state varible for this version of DrawSheldon can be found as lastBackground.
 let shell;  //these are my varibles
 let scaler;
 let music;
