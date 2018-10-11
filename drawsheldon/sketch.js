@@ -12,7 +12,6 @@ let bazinga;
 let appartment;
 let hallway;
 let kitchen;
-let whichBackground;
 let lastBackground = 0;
 
 function preload(){ //I use the preload to set up everything saved in the assets folder
