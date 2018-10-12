@@ -3,25 +3,25 @@
 // Sept 19th
 //
 // Extra for Experts:
-// My state varible for this version of DrawSheldon can be found as lastBackground.
+// My state varible for this version of DrawSheldon can be found as lastBackground. I also threw in a gif on my index page.
 let shell;  //these are my varibles
 let scaler;
 let music;
-let youngShell;
-let bazinga;
+let leonard;
+let Raj;
 let appartment;
 let hallway;
 let kitchen;
 let lastBackground = 0;
 
 function preload(){ //I use the preload to set up everything saved in the assets folder
-  bazinga = loadImage("assets/bazinga.png")
-  youngShell = loadImage("assets/young sheldon.png")
   shell = loadImage("assets/SHELDON-BIG-BANG-THEORY.png")
+  leonard = loadImage("assets/Leonard.png")
+  Raj = loadImage("assets/Raj---the-big-bang-theory.png")
   appartment = loadImage("assets/Sheldonappartment.jpg")
   hallway = loadImage("assets/big bang theaory hallway.jpg")
   kitchen = loadImage("assets/bbt kitchen.jpg")
-  music = loadSound("assets/Samba.wav")
+  music = loadSound("assets/The Big Bang Theory - Full (1).mp3")
 
 }
 
@@ -31,7 +31,7 @@ function setup() { //this sets up the canvas, music, and mousewheel
   scaler = 0.25
   music.setVolume(0.5)
   music.loop()
-  alert(" HOW TO DRAW\n m- switch through backgrounds\n n- draw with Sheldon's face\n b- draw with the word Bazinga\n v- draw with young Sheldon\n c- lift up pen\n x- restart\n z- clear current screen\n Use the Mouse Wheel to adjust size, up for small and down for big\n PRACTICE HERE AND CLICK 'Z' OR 'M' TO BEGIN")
+  alert(" HOW TO DRAW\n m- switch through backgrounds\n n- draw with Sheldon's face\n b- draw with the Raj's face\n v- draw with Leonard's face\n x- restart\n z- clear current screen\n lift up pen ny using any key that wasn't stated \n Use the Mouse Wheel to adjust size, up for small and down for big\n PRACTICE HERE AND CLICK 'Z' OR 'M' TO BEGIN")
 
 }
 
@@ -83,20 +83,17 @@ function keyTyped(){
    }
    if (keyCode === 66) {
      imageMode(CENTER)
-     image(bazinga, mouseX, mouseY, bazinga.width * scaler , bazinga.height * scaler)
+     image(Raj, mouseX, mouseY, Raj.width * scaler , Raj.height * scaler)
    }
 
     if (keyCode === 86) {
      imageMode(CENTER)
-     image(youngShell, mouseX, mouseY, youngShell.width * scaler , youngShell.height * scaler)
+     image(leonard, mouseX, mouseY, leonard.width * scaler , leonard.height * scaler)
    }
 
    if (keyCode === 88){
      background(255)
      image(shell, mouseX, mouseY, shell.width * scaler , shell.height * scaler)
-   }
-   if (keyCode === 67){
-   // this empty loop is keeping it so you can lift and select
    }
  }
 
@@ -109,8 +106,8 @@ function mouseWheel(event) {   //Now this here adjusts the size of the pen.
   }
   console.log(event);
 
-function playMusic() {
-  music.play()
 }
 
+function playMusic() {
+  music.play()
 }
