@@ -1,43 +1,48 @@
 // Project Title
 // Your Name
 // Date
+//
+// Extra for Experts:
+// - describe what you did to take this project "above and beyond"
 
-let numberOfRects;
-let rectWidth;
-let time = 0;
-let rects = [];
+//let ball;
+let ballArray = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  numberOfRects = width;
-  rectWidth = width / numberOfRects;
-  generateRectangles();
+
 }
 
 function draw() {
   background(255);
-  fill(0);
-  displayRects();
-}
 
-function displayRects() {
-  for (let i=0; i<rects.length; i++) {
-    rect(rects[i].x, rects[i].y, rects[i].width, rects[i].height);
+  for (let i = 0; i < ballArray.length; i ++){
+    //move ball
+    ballArray[i].x += ballArray[i].dx;
+    ballArray[i].y += ballArray[i].dy;
+
+    //bounce if required
+    if (ballArray[i].x > width - ballArray[i].radius || ballArray[i].x < 0 + ballArray[i].radius){
+      ballArray[i].dx *= -1;
+    }
+
+    if (ballArray[i].y > height - ballArray[i].radius || ballArray[i].y < 0 + ballArray[i].radius){
+      ballArray[i].dy *= -1;
+    }
+
+    //display ballArray[i]
+    fill(random(200, 255), random(200, 255), random(200, 255));
+    ellipse(ballArray[i].x, ballArray[i].y, ballArray[i].radius*2, ballArray[i].radius*2);
   }
 }
 
-function generateRectangles() {
-  rects = [];
-  for (let i=0; i<numberOfRects; i++) {
-    let rectHeight = noise(time) * height;
-    let someRect = {
-      x: i * rectWidth,
-      y: height - rectHeight,
-      width: rectWidth,
-      height: rectHeight,
-    };
-
-    rects.push(someRect);
-    time += 0.01;
-  }
+function mousePressed(){
+  let ball = {
+    x: width/2,
+    y: height/2,
+    radius: random(20, 50),
+    dx: random(-5, 5),
+    dy : random(-5, 5),
+  };
+  ballArray.push(ball);
 }
