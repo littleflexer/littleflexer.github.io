@@ -80,7 +80,7 @@ function mouseClicked(){
   let rand2 = random(stringOfQuestions2);
   let rand3 = random(stringOfQuestions3);
   let rand4 = random(stringOfQuestions4);
-  //console.log(questionValues[y][x] ); //atom dosn't know 'console' is a thing. It still works
+  console.log(questionValues[y][x] ); //atom dosn't know 'console' is a thing. It still works
   if (questionValues === 1){
     console.log(rand1);
   }
