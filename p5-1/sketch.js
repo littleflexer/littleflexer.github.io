@@ -20,7 +20,7 @@ let rand4;
 let questionValues = [[1, 1, 1, 1, 1], [2, 2, 2, 2, 2], [3, 3, 3, 3, 3], [4, 4, 4, 4, 4]];
 let stringOfQuestions1 = ["Who goes by the nickname 'Mr. WorldWide?'", "What is a canine?", "How many legs do dogs have?", "Big dogs or little dogs?"];
 let stringOfQuestions2 = ["What is the smallest dog?", "Who's smarter: A dog or a two year old?", "True or False: Dogs can help improve mood?", "Dogs or cats?"];
-let stringOfQuestions3 = ["SSBhbSBydW5uaW5nIG91dCBvZiBxdWVzdGlvbnMu", "Which of these are not a real famous dog: Loca the pug, gabe the dog, Airbud?", "https://www.base64encode.org/", "What is internet lingo for bark?"];
+let stringOfQuestions3 = ["SSBhbSBydW5uaW5nIG91dCBvZiBxdWVzdGlvbnMu", "Which of these are not a real famous dog: Loca the pug, gabe the dog, Airbud?", "www.base64decode.org/", "What is internet lingo for bark?"];
 let stringOfQuestions4 = ["Are newborn dogs born with open or closed ear canels?", "What does Corgi translate to?", "What Star Wars creature was modelled off of George Lucas's dog?", "Dogs?"];
 
 function preload(){
@@ -32,7 +32,6 @@ function setup() {
   cellSize = 150;
   grid = makeColsRows(cols, rows);
   background(titleBg, 0, 0, width, height);
-
 }
 
 function draw() {
@@ -80,17 +79,17 @@ function mouseClicked(){
   let rand2 = random(stringOfQuestions2);
   let rand3 = random(stringOfQuestions3);
   let rand4 = random(stringOfQuestions4);
-  console.log(questionValues[y][x] ); //atom dosn't know 'console' is a thing. It still works
-  if (questionValues === 1){
-    console.log(rand1);
+  //console.log(questionValues[y][x] && rand1 ); //atom dosn't know 'console' is a thing. It still works
+  if (questionValues[y][x] === 1){
+    console.log(questionValues[y][x] && rand1);
   }
-  else if (questionValues === 2){
-    console.log(rand2);
+  else if (questionValues[y][x] === 2){
+    console.log(questionValues[y][x] && rand2);
   }
-  else if (questionValues === 3){
-    console.log(rand3);
+  else if (questionValues[y][x] === 3){
+    console.log(questionValues[y][x] && rand3);
   }
-  else if (questionValues === 4){
-    console.log(rand4)
+  else if (questionValues[y][x] === 4){
+    console.log(questionValues[y][x] && rand4);
   }
 }
