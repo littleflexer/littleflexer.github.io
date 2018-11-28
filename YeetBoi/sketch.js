@@ -1,8 +1,8 @@
 // Supah Yeet Boi
 // Meeka Fast
-// Now
+// The Basic AI of a boss battle
 
-class Particle {
+class Particle { //creating thee shard enemies
   constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -29,7 +29,7 @@ class Particle {
 
 }
 
-class Chad {
+class Chad { //creating a Walker to play as
   constructor(x, y) {
 		this.chadX = 1000;
 		this.chadY = 300;
@@ -43,7 +43,7 @@ class Chad {
  		 stroke(this.color);
   	 ellipse(this.chadX, this.chadY, this.chadW, this.chadW);
   }
-  update() {
+  update() {  //walker and wall detection
     if (key === "w" || key === "W") {
    	  this.chadY = this.chadY - this.chadDy;
 	  }
@@ -60,44 +60,43 @@ class Chad {
 }
 
 
-// let fwork;
+// varibles
 
 let bossChad = new Chad(600, 300);
-let fireworks = [];
+let shards = [];
 let glassShoot = 3000;
 let lastStateChange = 0;
 let someParticle;
+let collided =0;
 
-function setup() {
+function setup() { // creating a canvas and setting up particle
   createCanvas(windowWidth, 400);
-  // fwork = new Particle(width/2, height/2);
   someParticle = new Particle(10, 10);
 }
 
-function draw() {
+function draw() { //this will display the objects as well as hold where resets take place
   background(255);
   bossChad.display();
   bossChad.update();
   displayShards();
-  // fwork.display();
-  // fwork.update();
-  for (let i = fireworks.length - 1; i >= 0; i--) {
-    if (fireworks[i].transparency <= 0) {
-      fireworks.splice(i, 1);
+  if (collided === 1) {
+    background(255);
+  }
+  for (let i = shards.length - 1; i >= 0; i--) { // this adds more shards to the array
+    if (shards[i].transparency <= 0) {
+      shards.splice(i, 1);
     } else {
-      fireworks[i].update();
-      fireworks[i].display();
-      // fireworks[i].bounce();
+      shards[i].update();
+      shards[i].display();
     }
   }
 }
 
-function displayShards() {
-  	//let lastStateChange;
+function displayShards() { // this will have the glass shards slowly increase in amount while at random speeds
   	let elapsedTime = millis() - lastStateChange;
   	if (elapsedTime >= glassShoot) {
 			let someParticle = new Particle(windowWidth - windowWidth, random( windowHeight - windowHeight, windowHeight));
-  		fireworks.push(someParticle);
+  		shards.push(someParticle);
       lastStateChange = lastStateChange + 300;
 
   	}
@@ -105,7 +104,9 @@ function displayShards() {
 }
 
 function detectHit() {
-  if (bossChad.y === someParticle.y && bossChad.x === somaParticle.x){
-      
+  if (bossChad.y === someParticle.y && bossChad.x === somaParticle.x){  // collision detected
+      // Make game stop moving and then have a thingy that'll make x restart or something
+
+      collided = 1;
   }
 }
