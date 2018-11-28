@@ -1,9 +1,6 @@
 // Supah Yeet Boi
 // Meeka Fast
 // Now
-//
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
 
 class Particle {
   constructor(x, y) {
@@ -34,7 +31,7 @@ class Particle {
 
 class Chad {
   constructor(x, y) {
-		this.chadX = 1200;
+		this.chadX = 1000;
 		this.chadY = 300;
 		this.chadW = 10;
 		this.chadDy = 5;
@@ -105,4 +102,10 @@ function displayShards() {
 
   	}
 
+}
+
+function detectHit() {
+  if (bossChad.y === someParticle.y && bossChad.x === somaParticle.x){
+    bossChad.color = "black";
+  }
 }
