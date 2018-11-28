@@ -106,6 +106,6 @@ function displayShards() {
 
 function detectHit() {
   if (bossChad.y === someParticle.y && bossChad.x === somaParticle.x){
-    bossChad.color = "black";
+      
   }
 }
