@@ -9,7 +9,6 @@ class Particle { //creating thee shard enemies
     this.size = 15;
     this.dx = random(3, 10);
     this.dy = random(0, 0);
-    this.ay = 1;
     this.transparency = 255;
     this.color = color(150, this.transparency);
   }
@@ -26,19 +25,18 @@ class Particle { //creating thee shard enemies
     this.y += this.dy;
 
   }
-
 }
 
 class Chad { //creating a Walker to play as
   constructor(x, y) {
 		this.chadX = 1000;
-		this.chadY = 300;
+		this.chadY = 10;
 		this.chadW = 10;
 		this.chadDy = 5;
     this.color = "Red";
   }
 
-  display() {
+  display() {  //Pretty explanitory. Just fills and displays
      fill(this.color);
  		 stroke(this.color);
   	 ellipse(this.chadX, this.chadY, this.chadW, this.chadW);
@@ -56,6 +54,11 @@ class Chad { //creating a Walker to play as
     else if (this.chadY >= 400 - this.chadW) {
       this.chadY = 390;
     }
+  }
+
+  collideCheck(someBox) { //Our detection checker
+    let isHitting = collideRectCircle(someBox.x, someBox.y, someBox.size, someBox.size, this.x, this.y, this.chadW);
+      console.log(isHitting);
   }
 }
 
@@ -78,14 +81,24 @@ function draw() { //this will display the objects as well as hold where resets t
   background(255);
   bossChad.display();
   bossChad.update();
+  bossChad.collideCheck(someParticle);
+
+
   displayShards();
-  if (collided === 1) {
-    background(255);
+  if (bossChad.chadX === someParticle.x) {
+    if (bossChad.chadY === someParticle.y) {
+      collided = 1;
+    }
   }
+ if (collided === 1) {
+   background(0);
+ }
   for (let i = shards.length - 1; i >= 0; i--) { // this adds more shards to the array
+    bossChad.collideCheck(shards[i]);
     if (shards[i].transparency <= 0) {
       shards.splice(i, 1);
     } else {
+
       shards[i].update();
       shards[i].display();
     }
@@ -108,5 +121,6 @@ function detectHit() {
       // Make game stop moving and then have a thingy that'll make x restart or something
 
       collided = 1;
+      console.log(collided);
   }
 }
