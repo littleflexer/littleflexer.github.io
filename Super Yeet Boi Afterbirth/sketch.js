@@ -3,6 +3,7 @@
 //Initiated November, 2018
 
 let state;
+let music;
 
 let grid;
 let rows;
@@ -59,10 +60,10 @@ class bChad { //creating a Walker to play as
     ellipse(this.chadX, this.chadY, this.chadW, this.chadW);
   }
   update() {  //walker and wall detection
-    if (keyCode === 38) {
+    if (key === "e" || key === "E") {
       this.chadY = this.chadY - this.chadDy;
     }
-    else if (key === 40) {
+    else if (key === "d" || key === "D") {
       this.chadY = this.chadY + this.chadDy;
     }
     if (this.chadY <= 0 + this.chadW) {
@@ -194,14 +195,18 @@ function preload() {
   chadRunning = loadImage("assets/Running Animation.gif");
   chadJumping = loadImage("assets/Jumping Animation.gif");
   chadYeeting = loadImage("assets/Yeeting Animation.gif");
+  music = loadSound("assets/colorblind.wav");
 }
 
 function setup() {
-  createCanvas(windowSize, windowSize);
+  createCanvas(windowWidth, 400);
   imageMode(CENTER);
   rows = grid[0].length;
   cols = grid[0].length;
   someParticle = new Particle(10, 10);
+
+  music.setVolume(0.5);
+  music.loop();
 
   cellSize = windowSize / rows;
 
@@ -211,7 +216,7 @@ function setup() {
 }
 
 function draw() {
-  background(128);
+  background(200);
   chad.display();
   chad.move();
   chad.jump();
@@ -240,6 +245,10 @@ function draw() {
       shards[i].display();
     }
   }
+}
+
+function playMusic(){
+  music.play();
 }
 
 function cleanupGrid() {
