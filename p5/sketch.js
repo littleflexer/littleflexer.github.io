@@ -5,44 +5,58 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-//let ball;
-let ballArray = [];
+class randomWalker {
+  constructor(x, y){
+    this.x = random(1, 10);
+    this.y = random(1, 10);
+    this.dx = 4;
+    this.dy = 4;
+    this.color = color(random(255), random(255), random(255));
+  }
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
+  display(){
+    noStroke();
+    fill(this.color);
+    ellipse(this.x, this.y, 3, 3);
 
-}
 
-function draw() {
-  background(255);
-
-  for (let i = 0; i < ballArray.length; i ++){
-    //move ball
-    ballArray[i].x += ballArray[i].dx;
-    ballArray[i].y += ballArray[i].dy;
-
-    //bounce if required
-    if (ballArray[i].x > width - ballArray[i].radius || ballArray[i].x < 0 + ballArray[i].radius){
-      ballArray[i].dx *= -1;
+  }
+  update(){
+    let choice = random(100);
+    if (choice < 25){
+      //left
+      this.x -= this.dx;
     }
-
-    if (ballArray[i].y > height - ballArray[i].radius || ballArray[i].y < 0 + ballArray[i].radius){
-      ballArray[i].dy *= -1;
+    else if (choice < 50){
+      //right
+      this.x += this.dx;
     }
-
-    //display ballArray[i]
-    fill(random(200, 255), random(200, 255), random(200, 255));
-    ellipse(ballArray[i].x, ballArray[i].y, ballArray[i].radius*2, ballArray[i].radius*2);
+    else if (choice < 75){
+      //up
+      this.y -= this.dy;
+    }
+    else {
+      //down
+      this.y += this.dy;
+    }
   }
 }
 
-function mousePressed(){
-  let ball = {
-    x: width/2,
-    y: height/2,
-    radius: random(20, 50),
-    dx: random(-5, 5),
-    dy : random(-5, 5),
-  };
-  ballArray.push(ball);
+let joe;
+let theWalkers = [];
+let numberOfWalkers = 10;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  for (let i = 0; i < numberOfWalkers; i++){
+    let bob = new randomWalker(width/2, height/2);
+  }
+}
+
+
+function draw() {
+  for (let i = 0; i < numberOfWalkers; i++){
+    theWalkers[i].update();
+    theWalkers[i].display();
+  }
 }
